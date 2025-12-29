@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Vimarsh | Modern Coding Club</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+    .glow {
+      box-shadow: 0 0 30px rgba(59,130,246,0.4);
+    }
+  </style>
+</head>
+
+<body class="text-white">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-8 py-4 backdrop-blur-md bg-black/30 fixed w-full z-50">
+    <h1 class="text-2xl font-bold text-blue-400">Code Vimarsh</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-400">About</a></li>
+      <li><a href="#events" class="hover:text-blue-400">Events</a></li>
+      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h2 class="text-5xl font-bold mb-4">Welcome to <span class="text-blue-400">Code Vimarsh</span></h2>
+    <p class="max-w-xl text-gray-300 mb-6">
+      A modern coding club to learn, build projects, and grow together 🚀
+    </p>
+    <a href="#contact" class="px-8 py-3 bg-blue-500 rounded-full glow hover:bg-blue-600 transition">
+      Join Our Community 🚀
+    </a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-6 bg-black/30">
+    <h3 class="text-4xl font-bold text-center mb-10">About Us</h3>
+    <p class="max-w-3xl mx-auto text-center text-gray-300">
+      Code Vimarsh is a student-driven coding community focused on web development,
+      programming fundamentals, hackathons, and real-world projects.
+    </p>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="py-20 px-6">
+    <h3 class="text-4xl font-bold text-center mb-12">Our Events</h3>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-black/40 p-6 rounded-xl glow">
+        <h4 class="text-xl font-semibold mb-2">Web Dev Bootcamp</h4>
+        <p class="text-gray-400">Learn HTML, CSS, JavaScript from scratch.</p>
+      </div>
+
+      <div class="bg-black/40 p-6 rounded-xl glow">
+        <h4 class="text-xl font-semibold mb-2">Hackathon</h4>
+        <p class="text-gray-400">Build real projects in 24 hours.</p>
+      </div>
+
+      <div class="bg-black/40 p-6 rounded-xl glow">
+        <h4 class="text-xl font-semibold mb-2">Tech Talks</h4>
+        <p class="text-gray-400">Sessions by industry experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 px-6 bg-black/30">
+    <h3 class="text-4xl font-bold text-center mb-10">Contact Us</h3>
+
+    <form class="max-w-xl mx-auto grid gap-4">
+      <input type="text" placeholder="Your Name" class="p-3 rounded bg-black/50 border border-gray-700">
+      <input type="email" placeholder="Email Address" class="p-3 rounded bg-black/50 border border-gray-700">
+      <textarea placeholder="Your Message" rows="4" class="p-3 rounded bg-black/50 border border-gray-700"></textarea>
+      <button class="bg-blue-500 py-3 rounded hover:bg-blue-600 transition">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-500 text-sm">
+    © 2025 Code Vimarsh | All Rights Reserved
+  </footer>
+
+</body>
+</html>
+
