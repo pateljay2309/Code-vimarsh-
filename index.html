@@ -230,7 +230,7 @@
      <h2 id="hero-title" class="text-7xl md:text-8xl font-black mb-6 gradient-text neon-text">Code Vimarsh</h2>
      <p id="hero-subtitle" class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-8">Where Ideas Come to Life</p>
      <p id="hero-description" class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">Join the future of coding. Connect with passionate developers, learn cutting-edge technologies, and build projects that matter.</p>
-     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center"><button id="cta-button" onclick="showContactPage()" class="shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Join Our Community → </button> <a href="https://www.codevimarsh.com" target="_blank" rel="noopener noreferrer" class="shine rotating-border bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow inline-block"> Visit Website 🌐 </a>
+     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center"><button id="cta-button" onclick="showJoinPage()" class="shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Join Our Community → </button> <a href="https://www.codevimarsh.com" target="_blank" rel="noopener noreferrer" class="shine rotating-border bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow inline-block"> Visit Website 🌐 </a>
      </div>
     </div>
    </section><!-- Features Section -->
@@ -296,7 +296,7 @@
        <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition"></div>
        <div class="relative glass-dark rounded-3xl p-8 card-3d overflow-hidden">
         <div class="text-7xl mb-6">
-         🤖
+            
         </div>
         <h4 id="event-3-name" class="text-3xl font-bold text-white mb-4">AI Revolution Talk</h4>
         <p id="event-3-description" class="text-gray-300 leading-relaxed mb-6">Explore the future of artificial intelligence with industry experts. Learn about neural networks and ML applications.</p><button onclick="showContactPage()" class="w-full shine bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold py-3 rounded-xl hover:scale-105 transition-all duration-300"> Contact Us → </button>
@@ -356,7 +356,77 @@
       </div>
      </div>
     </div>
-   </section><!-- Contact Page (Hidden by default) -->
+   </section><!-- Join Community Page (Hidden by default) -->
+   <div id="join-page" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div class="min-h-screen flex flex-col"><!-- Join Header -->
+     <div class="glass-dark py-6 px-6">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+       <div>
+        <h1 class="text-3xl font-bold gradient-text">Join Our Community</h1>
+        <p class="text-gray-400">Become a part of Code Vimarsh</p>
+       </div><button onclick="hideJoinPage()" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
+      </div>
+     </div><!-- Join Content -->
+     <div class="flex-1 py-20 px-6">
+      <div class="max-w-4xl mx-auto">
+       <div class="text-center mb-12">
+        <div class="text-8xl mb-6">
+         🚀
+        </div>
+        <h2 class="text-5xl font-black gradient-text mb-4">Start Your Journey</h2>
+        <p class="text-xl text-gray-300">Fill out the form below and join hundreds of passionate developers</p>
+       </div>
+       <div class="glass-dark rounded-3xl p-10">
+        <form id="join-form" class="space-y-6"><!-- Personal Information -->
+         <div class="border-b border-purple-500/30 pb-6">
+          <h3 class="text-2xl font-bold text-white mb-4">Personal Information</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+           <div><label for="join-firstname" class="block text-gray-300 font-semibold mb-2">First Name *</label> <input type="text" id="join-firstname" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+           </div>
+           <div><label for="join-lastname" class="block text-gray-300 font-semibold mb-2">Last Name *</label> <input type="text" id="join-lastname" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+           </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 mt-6">
+           <div><label for="join-email" class="block text-gray-300 font-semibold mb-2">Email Address *</label> <input type="email" id="join-email" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+           </div>
+           <div><label for="join-phone" class="block text-gray-300 font-semibold mb-2">Phone Number *</label> <input type="tel" id="join-phone" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+           </div>
+          </div>
+         </div><!-- Academic Information -->
+         <div class="border-b border-purple-500/30 pb-6">
+          <h3 class="text-2xl font-bold text-white mb-4">Academic Information</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+           <div><label for="join-department" class="block text-gray-300 font-semibold mb-2">Department *</label> <select id="join-department" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Department</option> <option value="cs">Computer Science</option> <option value="it">Information Technology</option> <option value="ece">Electronics &amp; Communication</option> <option value="ee">Electrical Engineering</option> <option value="me">Mechanical Engineering</option> <option value="ce">Civil Engineering</option> <option value="other">Other</option> </select>
+           </div>
+           <div><label for="join-year" class="block text-gray-300 font-semibold mb-2">Year of Study *</label> <select id="join-year" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Year</option> <option value="1">First Year</option> <option value="2">Second Year</option> <option value="3">Third Year</option> <option value="4">Fourth Year</option> <option value="pg">Post Graduate</option> </select>
+           </div>
+          </div>
+          <div class="mt-6"><label for="join-rollno" class="block text-gray-300 font-semibold mb-2">Roll Number / Student ID *</label> <input type="text" id="join-rollno" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+          </div>
+         </div><!-- Skills & Interests -->
+         <div class="border-b border-purple-500/30 pb-6">
+          <h3 class="text-2xl font-bold text-white mb-4">Skills &amp; Interests</h3>
+          <div class="mb-6"><label for="join-experience" class="block text-gray-300 font-semibold mb-2">Programming Experience *</label> <select id="join-experience" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Experience Level</option> <option value="beginner">Beginner (0-6 months)</option> <option value="intermediate">Intermediate (6 months - 2 years)</option> <option value="advanced">Advanced (2+ years)</option> <option value="expert">Expert (4+ years)</option> </select>
+          </div>
+          <div class="mb-6"><label class="block text-gray-300 font-semibold mb-3">Interested Technologies (Select all that apply)</label>
+           <div class="grid md:grid-cols-3 gap-4"><label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="web" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Web Development</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="mobile" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Mobile Apps</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="ai" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>AI/ML</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="cloud" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Cloud Computing</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="data" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Data Science</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="cyber" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Cybersecurity</span> </label>
+           </div>
+          </div>
+          <div><label for="join-skills" class="block text-gray-300 font-semibold mb-2">Programming Languages (comma separated)</label> <input type="text" id="join-skills" placeholder="e.g., Python, JavaScript, Java, C++" class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
+          </div>
+         </div><!-- Why Join -->
+         <div>
+          <h3 class="text-2xl font-bold text-white mb-4">Tell Us More</h3>
+          <div><label for="join-why" class="block text-gray-300 font-semibold mb-2">Why do you want to join Code Vimarsh? *</label> <textarea id="join-why" required rows="4" placeholder="Share your motivation, goals, and what you hope to achieve..." class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition resize-none"></textarea>
+          </div>
+         </div><button type="submit" class="w-full shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg py-4 rounded-xl hover:scale-105 transition-all duration-300 neon-glow"> Submit Application 🚀 </button>
+         <div id="join-message" class="hidden text-center p-4 rounded-xl"></div>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div><!-- Contact Page (Hidden by default) -->
    <div id="contact-page" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
     <div class="min-h-screen flex flex-col"><!-- Contact Header -->
      <div class="glass-dark py-6 px-6">
@@ -596,7 +666,7 @@
       <div class="max-w-6xl mx-auto">
        <div class="text-center mb-16">
         <div class="text-9xl mb-6">
-         🤝
+           
         </div>
         <h2 class="text-6xl font-black gradient-text mb-6">Grow Together</h2>
         <p class="text-2xl text-gray-300 max-w-3xl mx-auto">Connect with passionate developers and build lasting professional relationships</p>
@@ -648,7 +718,7 @@
          <h3 class="text-3xl font-bold text-white mb-4">Guest Speakers</h3>
          <p class="text-gray-300 mb-4">Learn from industry professionals and successful entrepreneurs who share their experiences.</p>
          <ul class="space-y-2 text-gray-400">
-          <li>✓ Industry insights</li>
+          <li>   Industry insights</li>
           <li>✓ Career guidance</li>
           <li>✓ Startup stories</li>
           <li>✓ Technical deep-dives</li>
@@ -680,6 +750,16 @@
   </div>
   <script>
     // Page Navigation Functions
+    function showJoinPage() {
+      document.getElementById('join-page').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideJoinPage() {
+      document.getElementById('join-page').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
     function showContactPage() {
       document.getElementById('contact-page').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -700,8 +780,44 @@
       document.body.style.overflow = 'auto';
     }
 
-    // Handle Contact Form Submission
+    // Handle Join Form Submission
     document.addEventListener('DOMContentLoaded', function() {
+      const joinForm = document.getElementById('join-form');
+      if (joinForm) {
+        joinForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const firstName = document.getElementById('join-firstname').value;
+          const lastName = document.getElementById('join-lastname').value;
+          const email = document.getElementById('join-email').value;
+          const department = document.getElementById('join-department').value;
+          
+          // Get selected technologies
+          const techCheckboxes = document.querySelectorAll('input[name="tech"]:checked');
+          const technologies = Array.from(techCheckboxes).map(cb => cb.value);
+          
+          // Show success message
+          const joinMessage = document.getElementById('join-message');
+          joinMessage.innerHTML = `
+            <div class="text-center">
+              <div class="text-6xl mb-4">🎉</div>
+              <h3 class="text-2xl font-bold text-white mb-2">Welcome to Code Vimarsh, ${firstName}!</h3>
+              <p class="text-gray-300 mb-4">Your application has been successfully submitted. We'll review it and get back to you at ${email} within 2-3 business days.</p>
+              <p class="text-purple-400 font-semibold">Get ready to start your coding journey! 🚀</p>
+            </div>
+          `;
+          joinMessage.className = 'text-center p-6 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500';
+          joinMessage.classList.remove('hidden');
+          
+          // Reset form
+          joinForm.reset();
+          
+          // Scroll to message
+          joinMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      }
+
+      // Handle Contact Form Submission
       const contactForm = document.getElementById('contact-form');
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -904,5 +1020,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b599cfeb3f26e29',t:'MTc2NzAxNDYyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b59b1c145883b7f',t:'MTc2NzAxNTQ3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
