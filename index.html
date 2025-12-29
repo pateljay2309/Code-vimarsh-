@@ -1,174 +1,162 @@
-<!DOCTYPE html>
-<html lang="gu">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Vimarsh | The Coding Club</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
-        
-        .glass-nav { background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        
-        .gradient-text { background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Vimarsh | Modern Coding Club</title>
 
-        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; border-color: #3b82f6; }
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
-        #video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; }
-        
-        .blob { position: absolute; width: 300px; height: 300px; background: rgba(59, 130, 246, 0.2); filter: blur(80px); border-radius: 50%; z-index: -1; }
-    </style>
+  <style>
+    *{font-family:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#020617}
+
+    .gradient-text{
+      background:linear-gradient(135deg,#7c3aed,#ec4899);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .float{animation:float 5s ease-in-out infinite}
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-15px)}
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      transition:0.3s ease;
+    }
+  </style>
 </head>
-<body>
 
-    <div class="blob top-20 left-10"></div>
-    <div class="blob bottom-20 right-10" style="background: rgba(139, 92, 246, 0.1);"></div>
+<body class="text-white">
 
-    <nav class="fixed w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter gradient-text">CODE VIMARSH</div>
-            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest">
-                <a href="#home" class="hover:text-blue-400">Home</a>
-                <a href="#about" class="hover:text-blue-400">About</a>
-                <a href="#dsa" class="text-blue-400">DSA Video</a>
-                <a href="#events" class="hover:text-blue-400">Events</a>
-                <a href="#team" class="hover:text-blue-400">Team</a>
-            </div>
-        </div>
-    </nav>
-
-    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-        <div data-aos="zoom-in">
-            <h1 class="text-6xl md:text-8xl font-extrabold leading-tight">Think. Code. <br><span class="gradient-text">Vimarsh.</span></h1>
-            <p class="text-gray-400 text-lg mt-6 max-w-2xl mx-auto">Code Vimarsh એ એવા વિદ્યાર્થીઓનો સમૂહ છે જેઓ ટેકનોલોજી દ્વારા દુનિયા બદલવા માંગે છે. ચાલો સાથે મળીને કઈંક નવું બનાવીએ!</p>
-            
-            <div class="flex flex-wrap justify-center gap-6 mt-10">
-                <a href="#events" class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-blue-500/20">Upcoming Events</a>
-                <button onclick="toggleVideo()" class="group bg-slate-800 border border-slate-700 hover:border-blue-500 px-10 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all">
-                    <i class="fas fa-play-circle text-blue-500 text-xl group-hover:scale-125 transition"></i> Watch DSA Masterclass
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="dsa" class="py-24 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <h2 class="text-4xl font-bold mb-6">DSA શીખો અને Interview ફોર્ડો! 💻</h2>
-                <p class="text-gray-400 mb-8 leading-relaxed">તમે ગમે તેટલી નવી Language શીખો, પણ જો તમારું Logic (DSA) પાકું નથી, તો મોટી કંપનીઓ માં તક મળવી મુશ્કેલ છે. Code Vimarsh લાવ્યું છે ખાસ ગુજરાતી અને હિન્દીમાં DSA ની સમજૂતી.</p>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-slate-800 rounded-xl border border-white/5 font-semibold">✔ Arrays & Strings</div>
-                    <div class="p-4 bg-slate-800 rounded-xl border border-white/5 font-semibold">✔ Recursion</div>
-                    <div class="p-4 bg-slate-800 rounded-xl border border-white/5 font-semibold">✔ Dynamic Programming</div>
-                    <div class="p-4 bg-slate-800 rounded-xl border border-white/5 font-semibold">✔ Graphs & Trees</div>
-                </div>
-            </div>
-            <div class="relative" data-aos="fade-left">
-                <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-30 blur"></div>
-                <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800" class="relative rounded-2xl border border-white/10" alt="Code">
-            </div>
-        </div>
-    </section>
-
-    <section id="events" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Upcoming Events</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-slate-900 border border-slate-800 rounded-3xl card-hover" data-aos="fade-up">
-                    <div class="text-blue-500 font-bold mb-4">JAN 2026</div>
-                    <h3 class="text-2xl font-bold mb-4">Web 3.0 Workshop</h3>
-                    <p class="text-gray-500 mb-6">Blockchain અને Smart Contracts ની દુનિયામાં પ્રવેશ કરો.</p>
-                    <a href="#" class="text-blue-400 font-bold">Register Now →</a>
-                </div>
-                <div class="p-8 bg-slate-900 border border-slate-800 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-purple-500 font-bold mb-4">FEB 2026</div>
-                    <h3 class="text-2xl font-bold mb-4">Internal Hackathon</h3>
-                    <p class="text-gray-500 mb-6">24 કલાક કોડિંગ અને પ્રોબ્લેમ સોલ્વિંગ ચેલેન્જ.</p>
-                    <a href="#" class="text-blue-400 font-bold">Register Now →</a>
-                </div>
-                <div class="p-8 bg-slate-900 border border-slate-800 rounded-3xl card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-pink-500 font-bold mb-4">MAR 2026</div>
-                    <h3 class="text-2xl font-bold mb-4">AI Tools Mastery</h3>
-                    <p class="text-gray-500 mb-6">ChatGPT અને AI નો ઉપયોગ કરી પ્રોડક્ટિવિટી વધારો.</p>
-                    <a href="#" class="text-blue-400 font-bold">Register Now →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="py-24 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-16">Meet Our Leaders</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div data-aos="flip-left">
-                    <img src="https://ui-avatars.com/api/?name=Admin+1&background=0D8ABC&color=fff&size=200" class="w-32 h-32 rounded-full mx-auto mb-6 ring-4 ring-blue-500/20 shadow-xl shadow-blue-500/10">
-                    <h4 class="text-xl font-bold">Lead Member</h4>
-                    <p class="text-blue-400">Founder & Tech Lead</p>
-                </div>
-                <div data-aos="flip-left" data-aos-delay="100">
-                    <img src="https://ui-avatars.com/api/?name=Admin+2&background=7C3AED&color=fff&size=200" class="w-32 h-32 rounded-full mx-auto mb-6 ring-4 ring-purple-500/20 shadow-xl shadow-purple-500/10">
-                    <h4 class="text-xl font-bold">Co-Founder</h4>
-                    <p class="text-purple-400">Operations Manager</p>
-                </div>
-                <div data-aos="flip-left" data-aos-delay="200">
-                    <img src="https://ui-avatars.com/api/?name=Admin+3&background=EC4899&color=fff&size=200" class="w-32 h-32 rounded-full mx-auto mb-6 ring-4 ring-pink-500/20 shadow-xl shadow-pink-500/10">
-                    <h4 class="text-xl font-bold">Mentor</h4>
-                    <p class="text-pink-400">DSA & CP Expert</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="video-modal" onclick="toggleVideo()">
-        <div class="relative w-full max-w-4xl p-4" onclick="event.stopPropagation()">
-            <button onclick="toggleVideo()" class="absolute -top-12 right-0 text-white text-4xl hover:text-blue-500 transition">&times;</button>
-            <div class="aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-                <iframe id="video-player" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p class="text-center mt-4 text-gray-400">Code Vimarsh Presents: DSA Masterclass</p>
-        </div>
+<!-- Navbar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 glass px-8 py-4 rounded-full flex items-center gap-8">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center font-bold">CV</div>
+    <div>
+      <h1 class="font-bold gradient-text">Code Vimarsh</h1>
+      <p class="text-xs text-purple-300">Innovation Starts Here</p>
     </div>
+  </div>
 
-    <footer class="py-20 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-2xl font-bold gradient-text">CODE VIMARSH</div>
-            <div class="flex space-x-6 text-2xl">
-                <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-github"></i></a>
-                <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="text-gray-500 text-sm">© 2025 Code Vimarsh. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <div class="hidden md:flex gap-6 font-semibold text-sm">
+    <a href="#home" class="hover:text-purple-400">Home</a>
+    <a href="#features" class="hover:text-purple-400">Features</a>
+    <a href="#events" class="hover:text-purple-400">Events</a>
+    <a href="#team" class="hover:text-purple-400">Team</a>
+    <a href="#contact" class="hover:text-purple-400">Contact</a>
+  </div>
+</nav>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({ duration: 800, once: true });
+<!-- Hero -->
+<section id="home" class="min-h-screen flex items-center justify-center px-6 text-center scroll-mt-32">
+  <div>
+    <div class="text-8xl mb-6 float">💻</div>
+    <h2 class="text-6xl md:text-7xl font-black gradient-text mb-6">Code Vimarsh</h2>
+    <p class="text-2xl text-purple-300 mb-6">Where Ideas Come to Life</p>
+    <p class="max-w-2xl mx-auto text-gray-300 mb-10">
+      Learn. Build. Collaborate. A modern coding community.
+    </p>
 
-        // Video Modal Control
-        function toggleVideo() {
-            const modal = document.getElementById('video-modal');
-            const player = document.getElementById('video-player');
-            // અહીં તમારા DSA વિડિયોની YouTube ID નાખો (e.g., dQw4w9WgXcQ)
-            const videoId = "dQw4w9WgXcQ"; 
-            const videoUrl = https://www.youtube.com/embed/${videoId}?autoplay=1;
+    <a href="#contact" class="px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-700 font-bold">
+      Join Community →
+    </a>
+  </div>
+</section>
 
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-                player.src = "";
-                document.body.style.overflow = 'auto'; // Re-enable scroll
-            } else {
-                modal.style.display = 'flex';
-                player.src = videoUrl;
-                document.body.style.overflow = 'hidden'; // Disable scroll
-            }
-        }
-    </script>
+<!-- Features -->
+<section id="features" class="py-24 px-6 scroll-mt-32">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🎓</div>
+      <h3 class="text-2xl font-bold mb-3">Learn</h3>
+      <p class="text-gray-300">Workshops & mentorship</p>
+    </div>
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🚀</div>
+      <h3 class="text-2xl font-bold mb-3">Build</h3>
+      <p class="text-gray-300">Real-world projects</p>
+    </div>
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🤝</div>
+      <h3 class="text-2xl font-bold mb-3">Connect</h3>
+      <p class="text-gray-300">Developer community</p>
+    </div>
+  </div>
+</section>
+
+<!-- Events -->
+<section id="events" class="py-24 px-6 bg-purple-950/30 scroll-mt-32">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-12">Upcoming Events</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass p-8 rounded-3xl card">🎨 Web Dev Workshop</div>
+      <div class="glass p-8 rounded-3xl card">⚡ Hackathon</div>
+      <div class="glass p-8 rounded-3xl card">🤖 AI Session</div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-24 px-6 scroll-mt-32">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-12">Meet the Team</h2>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="glass p-6 rounded-3xl">🔥 Aditya – President</div>
+      <div class="glass p-6 rounded-3xl">💎 Priya – Vice President</div>
+      <div class="glass p-6 rounded-3xl">⚡ Rohan – Tech Lead</div>
+      <div class="glass p-6 rounded-3xl">✨ Kavya – Events</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT (FIXED) -->
+<section id="contact" class="py-24 px-6 bg-purple-950/30 scroll-mt-32">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-6">Contact Us</h2>
+    <p class="text-gray-300 mb-12">Join Code Vimarsh 🚀</p>
+
+    <form
+      action="https://formsubmit.co/YOUR_EMAIL_HERE"
+      method="POST"
+      class="glass p-10 rounded-3xl space-y-6 text-left">
+
+      <input type="hidden" name="_subject" value="New Message - Code Vimarsh">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+
+      <input type="text" name="name" required placeholder="Your Name"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10">
+
+      <input type="email" name="email" required placeholder="Your Email"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10">
+
+      <textarea name="message" rows="5" required placeholder="Your Message"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10"></textarea>
+
+      <button type="submit"
+        class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold">
+        Send Message ✨
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 text-center text-gray-400">
+  © 2025 Code Vimarsh
+</footer>
+
 </body>
 </html>
