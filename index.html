@@ -5,39 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Code Vimarsh | Modern Coding Club</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    * { font-family: 'Inter', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background:#020617; }
+    *{font-family:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:#020617}
 
-    /* Gradient Text */
     .gradient-text{
       background:linear-gradient(135deg,#7c3aed,#ec4899);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
 
-    /* Glass */
     .glass{
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(18px);
       border:1px solid rgba(255,255,255,0.1);
     }
 
-    /* Floating */
-    .float{ animation: float 5s ease-in-out infinite; }
+    .float{animation:float 5s ease-in-out infinite}
     @keyframes float{
       0%,100%{transform:translateY(0)}
       50%{transform:translateY(-15px)}
     }
 
-    /* Card Hover */
     .card:hover{
       transform:translateY(-10px);
       transition:0.3s ease;
@@ -62,6 +55,7 @@
     <a href="#features" class="hover:text-purple-400">Features</a>
     <a href="#events" class="hover:text-purple-400">Events</a>
     <a href="#team" class="hover:text-purple-400">Team</a>
+    <a href="#contact" class="hover:text-purple-400">Contact</a>
   </div>
 </nav>
 
@@ -70,53 +64,35 @@
   <div>
     <div class="text-8xl mb-6 float">💻</div>
     <h2 class="text-6xl md:text-7xl font-black gradient-text mb-6">Code Vimarsh</h2>
-    <p class="text-2xl md:text-3xl text-purple-300 mb-6">
-      Where Ideas Come to Life
-    </p>
+    <p class="text-2xl text-purple-300 mb-6">Where Ideas Come to Life</p>
     <p class="max-w-2xl mx-auto text-gray-300 mb-10">
-      Learn. Build. Collaborate. Join a community of passionate developers and innovators.
+      Learn. Build. Collaborate. A modern coding community.
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-6 justify-center">
-      <a href="#contact" class="px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-700 font-bold">
-        Join Community →
-      </a>
-      <a href="https://www.codevimarsh.com" target="_blank"
-         class="px-8 py-4 rounded-full bg-pink-600 hover:bg-pink-700 font-bold">
-        Visit Website 🌐
-      </a>
-    </div>
+    <a href="#contact" class="px-10 py-4 rounded-full bg-purple-600 hover:bg-purple-700 font-bold">
+      Join Community →
+    </a>
   </div>
 </section>
 
 <!-- Features -->
 <section id="features" class="py-24 px-6">
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-
     <div class="glass p-8 rounded-3xl card text-center">
       <div class="text-5xl mb-4">🎓</div>
-      <h3 class="text-2xl font-bold mb-3">Learn & Grow</h3>
-      <p class="text-gray-300">
-        Workshops, mentorship and structured learning paths.
-      </p>
+      <h3 class="text-2xl font-bold mb-3">Learn</h3>
+      <p class="text-gray-300">Workshops & mentorship</p>
     </div>
-
     <div class="glass p-8 rounded-3xl card text-center">
       <div class="text-5xl mb-4">🚀</div>
-      <h3 class="text-2xl font-bold mb-3">Build Projects</h3>
-      <p class="text-gray-300">
-        Create real-world applications and showcase your skills.
-      </p>
+      <h3 class="text-2xl font-bold mb-3">Build</h3>
+      <p class="text-gray-300">Real-world projects</p>
     </div>
-
     <div class="glass p-8 rounded-3xl card text-center">
       <div class="text-5xl mb-4">🤝</div>
       <h3 class="text-2xl font-bold mb-3">Connect</h3>
-      <p class="text-gray-300">
-        Network with developers & collaborate on ideas.
-      </p>
+      <p class="text-gray-300">Developer community</p>
     </div>
-
   </div>
 </section>
 
@@ -124,25 +100,10 @@
 <section id="events" class="py-24 px-6 bg-purple-950/30">
   <div class="max-w-6xl mx-auto text-center">
     <h2 class="text-5xl font-black gradient-text mb-12">Upcoming Events</h2>
-
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="glass p-8 rounded-3xl card">
-        <div class="text-5xl mb-4">🎨</div>
-        <h4 class="text-xl font-bold mb-2">Web Dev Masterclass</h4>
-        <p class="text-gray-300">Modern frontend & backend technologies.</p>
-      </div>
-
-      <div class="glass p-8 rounded-3xl card">
-        <div class="text-5xl mb-4">⚡</div>
-        <h4 class="text-xl font-bold mb-2">Hackathon</h4>
-        <p class="text-gray-300">48-hour innovation challenge.</p>
-      </div>
-
-      <div class="glass p-8 rounded-3xl card">
-        <div class="text-5xl mb-4">🤖</div>
-        <h4 class="text-xl font-bold mb-2">AI Talk</h4>
-        <p class="text-gray-300">Future of Artificial Intelligence.</p>
-      </div>
+      <div class="glass p-8 rounded-3xl card">🎨 Web Dev Workshop</div>
+      <div class="glass p-8 rounded-3xl card">⚡ Hackathon</div>
+      <div class="glass p-8 rounded-3xl card">🤖 AI Session</div>
     </div>
   </div>
 </section>
@@ -150,36 +111,51 @@
 <!-- Team -->
 <section id="team" class="py-24 px-6">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-5xl font-black gradient-text mb-12">Meet Our Team</h2>
-
+    <h2 class="text-5xl font-black gradient-text mb-12">Meet the Team</h2>
     <div class="grid md:grid-cols-4 gap-8">
-      <div class="glass p-6 rounded-3xl">
-        <div class="text-5xl mb-3">🔥</div>
-        <h4 class="font-bold">Aditya Verma</h4>
-        <p class="text-purple-400">President</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <div class="text-5xl mb-3">💎</div>
-        <h4 class="font-bold">Priya Sharma</h4>
-        <p class="text-cyan-400">Vice President</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <div class="text-5xl mb-3">⚡</div>
-        <h4 class="font-bold">Rohan Desai</h4>
-        <p class="text-pink-400">Technical Lead</p>
-      </div>
-      <div class="glass p-6 rounded-3xl">
-        <div class="text-5xl mb-3">✨</div>
-        <h4 class="font-bold">Kavya Reddy</h4>
-        <p class="text-indigo-400">Events Coordinator</p>
-      </div>
+      <div class="glass p-6 rounded-3xl">🔥 Aditya – President</div>
+      <div class="glass p-6 rounded-3xl">💎 Priya – Vice President</div>
+      <div class="glass p-6 rounded-3xl">⚡ Rohan – Tech Lead</div>
+      <div class="glass p-6 rounded-3xl">✨ Kavya – Events</div>
     </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" class="py-24 px-6 bg-purple-950/30">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-6">Contact Us</h2>
+    <p class="text-gray-300 mb-12">Join Code Vimarsh 🚀</p>
+
+    <form
+      action="https://formsubmit.co/YOUR_EMAIL_HERE"
+      method="POST"
+      class="glass p-10 rounded-3xl space-y-6 text-left">
+
+      <input type="hidden" name="_subject" value="New Message - Code Vimarsh">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+
+      <input type="text" name="name" required placeholder="Your Name"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10">
+
+      <input type="email" name="email" required placeholder="Your Email"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10">
+
+      <textarea name="message" rows="5" required placeholder="Your Message"
+        class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10"></textarea>
+
+      <button type="submit"
+        class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 font-bold">
+        Send Message ✨
+      </button>
+    </form>
   </div>
 </section>
 
 <!-- Footer -->
 <footer class="py-10 text-center text-gray-400">
-  © 2025 Code Vimarsh. All rights reserved.
+  © 2025 Code Vimarsh
 </footer>
 
 </body>
