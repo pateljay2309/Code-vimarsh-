@@ -1,1024 +1,186 @@
 <!doctype html>
-<html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Code Vimarsh | Modern Coding Club</title>
-  <script src="/_sdk/element_sdk.js"></script>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      box-sizing: border-box;
-    }
-    
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Animated Background */
-    .animated-bg {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .animated-bg::before {
-      content: '';
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: moveGrid 20s linear infinite;
-    }
-    
-    @keyframes moveGrid {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(50px, 50px); }
-    }
-    
+    * { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background:#020617; }
+
     /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradientShift 3s ease infinite;
-      background-size: 200% 200%;
+    .gradient-text{
+      background:linear-gradient(135deg,#7c3aed,#ec4899);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
-    
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+
+    /* Glass */
+    .glass{
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.1);
     }
-    
-    /* Floating Animation */
-    .float {
-      animation: float 6s ease-in-out infinite;
+
+    /* Floating */
+    .float{ animation: float 5s ease-in-out infinite; }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-15px)}
     }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    /* Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .glass-dark {
-      background: rgba(30, 30, 50, 0.7);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    /* 3D Card Effect */
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: all 0.5s ease;
-    }
-    
-    .card-3d:hover {
-      transform: translateY(-20px) rotateX(10deg) rotateY(5deg);
-    }
-    
-    /* Neon Glow */
-    .neon-glow {
-      box-shadow: 0 0 20px rgba(147, 51, 234, 0.5),
-                  0 0 40px rgba(147, 51, 234, 0.3),
-                  0 0 60px rgba(147, 51, 234, 0.1);
-    }
-    
-    .neon-text {
-      text-shadow: 0 0 10px rgba(147, 51, 234, 0.8),
-                   0 0 20px rgba(147, 51, 234, 0.6),
-                   0 0 30px rgba(147, 51, 234, 0.4);
-    }
-    
-    /* Particle Effect */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    
-    /* Wave Animation */
-    .wave {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='rgba(147, 51, 234, 0.1)'%3E%3C/path%3E%3C/svg%3E");
-      background-repeat: repeat-x;
-      animation: wave 10s linear infinite;
-    }
-    
-    @keyframes wave {
-      0% { background-position-x: 0; }
-      100% { background-position-x: 1200px; }
-    }
-    
-    /* Pulse Animation */
-    .pulse-ring {
-      animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-    }
-    
-    @keyframes pulseRing {
-      0% { transform: scale(0.8); opacity: 1; }
-      100% { transform: scale(2); opacity: 0; }
-    }
-    
-    /* Shine Effect */
-    .shine {
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .shine::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
-    
-    .shine:hover::before {
-      left: 100%;
-    }
-    
-    /* Rotating Border */
-    .rotating-border {
-      position: relative;
-    }
-    
-    .rotating-border::before {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
-      border-radius: inherit;
-      z-index: -1;
-      background-size: 300% 300%;
-      animation: rotateBorder 3s linear infinite;
-    }
-    
-    @keyframes rotateBorder {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    
-    /* Morphing Shapes */
-    .morph-1 {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
-      animation: morph1 8s ease-in-out infinite;
-    }
-    
-    @keyframes morph1 {
-      0%, 100% { clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); }
-      50% { clip-path: polygon(0% 15%, 85% 0%, 100% 60%, 85% 85%, 50% 100%, 15% 85%, 0% 60%); }
+
+    /* Card Hover */
+    .card:hover{
+      transform:translateY(-10px);
+      transition:0.3s ease;
     }
   </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full">
-  <div class="page-wrapper h-full w-full flex flex-col overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"><!-- Floating Navigation -->
-   <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 glass rounded-full px-8 py-4 shadow-2xl">
-    <div class="flex items-center space-x-8">
-     <div class="flex items-center space-x-2">
-      <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold neon-glow">
-       CV
-      </div>
-      <div>
-       <h1 id="club-name" class="text-lg font-bold gradient-text">Code Vimarsh</h1>
-       <p id="club-motto" class="text-xs text-purple-600 font-semibold">Innovation Starts Here</p>
-      </div>
-     </div>
-     <div class="hidden md:flex space-x-6"><a href="#home" class="text-gray-700 hover:text-purple-600 font-semibold transition">Home</a> <a href="#features" class="text-gray-700 hover:text-purple-600 font-semibold transition">Features</a> <a href="#events" class="text-gray-700 hover:text-purple-600 font-semibold transition">Events</a> <a href="#team" class="text-gray-700 hover:text-purple-600 font-semibold transition">Team</a>
-     </div>
+</head>
+
+<body class="text-white">
+
+<!-- Navbar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 glass px-8 py-4 rounded-full flex items-center gap-8">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center font-bold">CV</div>
+    <div>
+      <h1 class="font-bold gradient-text">Code Vimarsh</h1>
+      <p class="text-xs text-purple-300">Innovation Starts Here</p>
     </div>
-   </nav><!-- Hero Section -->
-   <section id="home" class="relative min-h-screen flex items-center justify-center px-6 animated-bg">
-    <div class="wave"></div><!-- Floating Particles -->
-    <div class="particle bg-purple-400 w-3 h-3 absolute top-20 left-10 float opacity-50"></div>
-    <div class="particle bg-pink-400 w-4 h-4 absolute top-40 right-20 float opacity-50" style="animation-delay: 1s;"></div>
-    <div class="particle bg-blue-400 w-2 h-2 absolute bottom-40 left-1/4 float opacity-50" style="animation-delay: 2s;"></div>
-    <div class="particle bg-purple-400 w-5 h-5 absolute bottom-20 right-1/3 float opacity-50" style="animation-delay: 3s;"></div>
-    <div class="max-w-6xl mx-auto text-center relative z-10">
-     <div class="mb-8">
-      <div class="inline-block relative">
-       <div class="absolute inset-0 bg-purple-500 rounded-full pulse-ring"></div>
-       <div class="text-9xl float">
-        💻
-       </div>
-      </div>
-     </div>
-     <h2 id="hero-title" class="text-7xl md:text-8xl font-black mb-6 gradient-text neon-text">Code Vimarsh</h2>
-     <p id="hero-subtitle" class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-8">Where Ideas Come to Life</p>
-     <p id="hero-description" class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">Join the future of coding. Connect with passionate developers, learn cutting-edge technologies, and build projects that matter.</p>
-     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center"><button id="cta-button" onclick="showJoinPage()" class="shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Join Our Community → </button> <a href="https://www.codevimarsh.com" target="_blank" rel="noopener noreferrer" class="shine rotating-border bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow inline-block"> Visit Website 🌐 </a>
-     </div>
-    </div>
-   </section><!-- Features Section -->
-   <section id="features" class="py-32 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-     <div class="grid md:grid-cols-3 gap-10"><!-- Feature 1 -->
-      <div class="glass-dark rounded-3xl p-10 card-3d relative overflow-hidden group cursor-pointer" onclick="showFeaturePage(1)">
-       <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"></div>
-       <div class="text-6xl mb-6 float">
-        🎓
-       </div>
-       <h3 id="feature-1-title" class="text-3xl font-bold text-white mb-4">Learn &amp; Grow</h3>
-       <p id="feature-1-text" class="text-gray-300 leading-relaxed mb-6">Master new technologies through hands-on workshops, expert mentorship, and collaborative learning experiences.</p><button class="shine bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-300"> Learn More → </button>
-      </div><!-- Feature 2 -->
-      <div class="glass-dark rounded-3xl p-10 card-3d relative overflow-hidden group cursor-pointer" onclick="showFeaturePage(2)">
-       <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"></div>
-       <div class="text-6xl mb-6 float" style="animation-delay: 0.5s;">
-        🚀
-       </div>
-       <h3 id="feature-2-title" class="text-3xl font-bold text-white mb-4">Build Projects</h3>
-       <p id="feature-2-text" class="text-gray-300 leading-relaxed mb-6">Create real-world applications and innovative solutions. Turn your ideas into reality with our resources and support.</p><button class="shine bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-300"> Learn More → </button>
-      </div><!-- Feature 3 -->
-      <div class="glass-dark rounded-3xl p-10 card-3d relative overflow-hidden group cursor-pointer" onclick="showFeaturePage(3)">
-       <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition"></div>
-       <div class="text-6xl mb-6 float" style="animation-delay: 1s;">
-        🤝
-       </div>
-       <h3 id="feature-3-title" class="text-3xl font-bold text-white mb-4">Connect &amp; Collaborate</h3>
-       <p id="feature-3-text" class="text-gray-300 leading-relaxed mb-6">Network with fellow developers, share knowledge, and collaborate on exciting projects that push boundaries.</p><button class="shine bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-300"> Learn More → </button>
-      </div>
-     </div>
-    </div>
-   </section><!-- Events Section -->
-   <section id="events" class="py-32 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-     <div class="text-center mb-20">
-      <div class="inline-block glass rounded-full px-6 py-3 mb-6"><span class="text-purple-400 font-bold">✨ What's Happening</span>
-      </div>
-      <h3 id="events-title" class="text-6xl font-black gradient-text mb-4">Upcoming Events</h3>
-     </div>
-     <div class="grid md:grid-cols-3 gap-8"><!-- Event 1 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 card-3d overflow-hidden">
-        <div class="text-7xl mb-6">
-         🎨
-        </div>
-        <h4 id="event-1-name" class="text-3xl font-bold text-white mb-4">Web Dev Masterclass</h4>
-        <p id="event-1-description" class="text-gray-300 leading-relaxed mb-6">Deep dive into modern web development with React, Next.js, and cutting-edge frameworks. Build stunning applications.</p><button onclick="showContactPage()" class="w-full shine bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-3 rounded-xl hover:scale-105 transition-all duration-300"> Contact Us → </button>
-       </div>
-      </div><!-- Event 2 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 card-3d overflow-hidden">
-        <div class="text-7xl mb-6">
-         ⚡
-        </div>
-        <h4 id="event-2-name" class="text-3xl font-bold text-white mb-4">Innovation Hackathon</h4>
-        <p id="event-2-description" class="text-gray-300 leading-relaxed mb-6">48-hour coding marathon where teams compete to build groundbreaking solutions. Win prizes and recognition.</p><button onclick="showContactPage()" class="w-full shine bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold py-3 rounded-xl hover:scale-105 transition-all duration-300"> Contact Us → </button>
-       </div>
-      </div><!-- Event 3 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 card-3d overflow-hidden">
-        <div class="text-7xl mb-6">
-            
-        </div>
-        <h4 id="event-3-name" class="text-3xl font-bold text-white mb-4">AI Revolution Talk</h4>
-        <p id="event-3-description" class="text-gray-300 leading-relaxed mb-6">Explore the future of artificial intelligence with industry experts. Learn about neural networks and ML applications.</p><button onclick="showContactPage()" class="w-full shine bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold py-3 rounded-xl hover:scale-105 transition-all duration-300"> Contact Us → </button>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Team Section -->
-   <section id="team" class="py-32 px-6 relative">
-    <div class="max-w-7xl mx-auto">
-     <div class="text-center mb-20">
-      <div class="inline-block glass rounded-full px-6 py-3 mb-6"><span class="text-pink-400 font-bold">👥 Leadership</span>
-      </div>
-      <h3 id="team-title" class="text-6xl font-black gradient-text mb-4">Meet Our Team</h3>
-      <p id="team-subtitle" class="text-2xl text-gray-400">The minds behind the magic</p>
-     </div>
-     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"><!-- Leader 1 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 text-center card-3d">
-        <div class="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl neon-glow morph-1">
-         🔥
-        </div>
-        <h4 id="leader-1-name" class="text-2xl font-bold text-white mb-2">Aditya Verma</h4>
-        <p id="leader-1-title" class="text-purple-400 font-semibold text-lg">President</p>
-       </div>
-      </div><!-- Leader 2 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 text-center card-3d">
-        <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl neon-glow morph-1">
-         💎
-        </div>
-        <h4 id="leader-2-name" class="text-2xl font-bold text-white mb-2">Priya Sharma</h4>
-        <p id="leader-2-title" class="text-cyan-400 font-semibold text-lg">Vice President</p>
-       </div>
-      </div><!-- Leader 3 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-br from-pink-600 to-rose-600 rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 text-center card-3d">
-        <div class="w-32 h-32 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl neon-glow morph-1">
-         ⚡
-        </div>
-        <h4 id="leader-3-name" class="text-2xl font-bold text-white mb-2">Rohan Desai</h4>
-        <p id="leader-3-title" class="text-pink-400 font-semibold text-lg">Technical Lead</p>
-       </div>
-      </div><!-- Leader 4 -->
-      <div class="relative group">
-       <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl blur-2xl opacity-0 group-hover:opacity-60 transition"></div>
-       <div class="relative glass-dark rounded-3xl p-8 text-center card-3d">
-        <div class="w-32 h-32 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl neon-glow morph-1">
-         ✨
-        </div>
-        <h4 id="leader-4-name" class="text-2xl font-bold text-white mb-2">Kavya Reddy</h4>
-        <p id="leader-4-title" class="text-indigo-400 font-semibold text-lg">Events Coordinator</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section><!-- Join Community Page (Hidden by default) -->
-   <div id="join-page" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-    <div class="min-h-screen flex flex-col"><!-- Join Header -->
-     <div class="glass-dark py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-       <div>
-        <h1 class="text-3xl font-bold gradient-text">Join Our Community</h1>
-        <p class="text-gray-400">Become a part of Code Vimarsh</p>
-       </div><button onclick="hideJoinPage()" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
-      </div>
-     </div><!-- Join Content -->
-     <div class="flex-1 py-20 px-6">
-      <div class="max-w-4xl mx-auto">
-       <div class="text-center mb-12">
-        <div class="text-8xl mb-6">
-         🚀
-        </div>
-        <h2 class="text-5xl font-black gradient-text mb-4">Start Your Journey</h2>
-        <p class="text-xl text-gray-300">Fill out the form below and join hundreds of passionate developers</p>
-       </div>
-       <div class="glass-dark rounded-3xl p-10">
-        <form id="join-form" class="space-y-6"><!-- Personal Information -->
-         <div class="border-b border-purple-500/30 pb-6">
-          <h3 class="text-2xl font-bold text-white mb-4">Personal Information</h3>
-          <div class="grid md:grid-cols-2 gap-6">
-           <div><label for="join-firstname" class="block text-gray-300 font-semibold mb-2">First Name *</label> <input type="text" id="join-firstname" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-           </div>
-           <div><label for="join-lastname" class="block text-gray-300 font-semibold mb-2">Last Name *</label> <input type="text" id="join-lastname" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-           </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-6 mt-6">
-           <div><label for="join-email" class="block text-gray-300 font-semibold mb-2">Email Address *</label> <input type="email" id="join-email" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-           </div>
-           <div><label for="join-phone" class="block text-gray-300 font-semibold mb-2">Phone Number *</label> <input type="tel" id="join-phone" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-           </div>
-          </div>
-         </div><!-- Academic Information -->
-         <div class="border-b border-purple-500/30 pb-6">
-          <h3 class="text-2xl font-bold text-white mb-4">Academic Information</h3>
-          <div class="grid md:grid-cols-2 gap-6">
-           <div><label for="join-department" class="block text-gray-300 font-semibold mb-2">Department *</label> <select id="join-department" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Department</option> <option value="cs">Computer Science</option> <option value="it">Information Technology</option> <option value="ece">Electronics &amp; Communication</option> <option value="ee">Electrical Engineering</option> <option value="me">Mechanical Engineering</option> <option value="ce">Civil Engineering</option> <option value="other">Other</option> </select>
-           </div>
-           <div><label for="join-year" class="block text-gray-300 font-semibold mb-2">Year of Study *</label> <select id="join-year" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Year</option> <option value="1">First Year</option> <option value="2">Second Year</option> <option value="3">Third Year</option> <option value="4">Fourth Year</option> <option value="pg">Post Graduate</option> </select>
-           </div>
-          </div>
-          <div class="mt-6"><label for="join-rollno" class="block text-gray-300 font-semibold mb-2">Roll Number / Student ID *</label> <input type="text" id="join-rollno" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-          </div>
-         </div><!-- Skills & Interests -->
-         <div class="border-b border-purple-500/30 pb-6">
-          <h3 class="text-2xl font-bold text-white mb-4">Skills &amp; Interests</h3>
-          <div class="mb-6"><label for="join-experience" class="block text-gray-300 font-semibold mb-2">Programming Experience *</label> <select id="join-experience" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition"> <option value="">Select Experience Level</option> <option value="beginner">Beginner (0-6 months)</option> <option value="intermediate">Intermediate (6 months - 2 years)</option> <option value="advanced">Advanced (2+ years)</option> <option value="expert">Expert (4+ years)</option> </select>
-          </div>
-          <div class="mb-6"><label class="block text-gray-300 font-semibold mb-3">Interested Technologies (Select all that apply)</label>
-           <div class="grid md:grid-cols-3 gap-4"><label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="web" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Web Development</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="mobile" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Mobile Apps</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="ai" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>AI/ML</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="cloud" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Cloud Computing</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="data" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Data Science</span> </label> <label class="flex items-center space-x-2 text-gray-300 cursor-pointer"> <input type="checkbox" name="tech" value="cyber" class="w-5 h-5 rounded bg-slate-800 border-purple-500/30 text-purple-600 focus:ring-purple-500"> <span>Cybersecurity</span> </label>
-           </div>
-          </div>
-          <div><label for="join-skills" class="block text-gray-300 font-semibold mb-2">Programming Languages (comma separated)</label> <input type="text" id="join-skills" placeholder="e.g., Python, JavaScript, Java, C++" class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-          </div>
-         </div><!-- Why Join -->
-         <div>
-          <h3 class="text-2xl font-bold text-white mb-4">Tell Us More</h3>
-          <div><label for="join-why" class="block text-gray-300 font-semibold mb-2">Why do you want to join Code Vimarsh? *</label> <textarea id="join-why" required rows="4" placeholder="Share your motivation, goals, and what you hope to achieve..." class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition resize-none"></textarea>
-          </div>
-         </div><button type="submit" class="w-full shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg py-4 rounded-xl hover:scale-105 transition-all duration-300 neon-glow"> Submit Application 🚀 </button>
-         <div id="join-message" class="hidden text-center p-4 rounded-xl"></div>
-        </form>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div><!-- Contact Page (Hidden by default) -->
-   <div id="contact-page" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-    <div class="min-h-screen flex flex-col"><!-- Contact Header -->
-     <div class="glass-dark py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-       <div>
-        <h1 class="text-3xl font-bold gradient-text">Contact Us</h1>
-        <p class="text-gray-400">Get in touch with Code Vimarsh</p>
-       </div><button onclick="hideContactPage()" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
-      </div>
-     </div><!-- Contact Content -->
-     <div class="flex-1 py-20 px-6">
-      <div class="max-w-5xl mx-auto">
-       <div class="grid md:grid-cols-2 gap-12"><!-- Contact Form -->
-        <div class="glass-dark rounded-3xl p-10">
-         <h2 class="text-4xl font-bold text-white mb-8">Send us a message</h2>
-         <form id="contact-form" class="space-y-6">
-          <div><label for="name" class="block text-gray-300 font-semibold mb-2">Your Name</label> <input type="text" id="name" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-          </div>
-          <div><label for="email" class="block text-gray-300 font-semibold mb-2">Email Address</label> <input type="email" id="email" required class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-          </div>
-          <div><label for="phone" class="block text-gray-300 font-semibold mb-2">Phone Number</label> <input type="tel" id="phone" class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition">
-          </div>
-          <div><label for="message" class="block text-gray-300 font-semibold mb-2">Message</label> <textarea id="message" required rows="4" class="w-full bg-slate-800 text-white px-4 py-3 rounded-xl border border-purple-500/30 focus:border-purple-500 focus:outline-none transition resize-none"></textarea>
-          </div><button type="submit" class="w-full shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg py-4 rounded-xl hover:scale-105 transition-all duration-300 neon-glow"> Send Message → </button>
-          <div id="form-message" class="hidden text-center p-4 rounded-xl"></div>
-         </form>
-        </div><!-- Contact Info -->
-        <div class="space-y-8">
-         <div class="glass-dark rounded-3xl p-8 card-3d">
-          <div class="text-5xl mb-4">
-           📧
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Email Us</h3>
-          <p class="text-gray-300">contact@codevimarsh.com</p>
-          <p class="text-gray-300">info@codevimarsh.com</p>
-         </div>
-         <div class="glass-dark rounded-3xl p-8 card-3d">
-          <div class="text-5xl mb-4">
-           📱
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Call Us</h3>
-          <p class="text-gray-300">+91 98765 43210</p>
-          <p class="text-gray-300">+91 87654 32109</p>
-         </div>
-         <div class="glass-dark rounded-3xl p-8 card-3d">
-          <div class="text-5xl mb-4">
-           📍
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Visit Us</h3>
-          <p class="text-gray-300">Computer Science Department</p>
-          <p class="text-gray-300">Main Campus, Building A</p>
-          <p class="text-gray-300">Room 301</p>
-         </div>
-         <div class="glass-dark rounded-3xl p-8 card-3d">
-          <div class="text-5xl mb-4">
-           ⏰
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Office Hours</h3>
-          <p class="text-gray-300">Monday - Friday: 9 AM - 5 PM</p>
-          <p class="text-gray-300">Saturday: 10 AM - 2 PM</p>
-         </div>
-        </div>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div><!-- Feature Detail Pages --> <!-- Learn & Grow Page -->
-   <div id="feature-page-1" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-    <div class="min-h-screen flex flex-col">
-     <div class="glass-dark py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-       <div>
-        <h1 class="text-3xl font-bold gradient-text">Learn &amp; Grow</h1>
-        <p class="text-gray-400">Educational Programs &amp; Workshops</p>
-       </div><button onclick="hideFeaturePage(1)" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
-      </div>
-     </div>
-     <div class="flex-1 py-20 px-6">
-      <div class="max-w-6xl mx-auto">
-       <div class="text-center mb-16">
-        <div class="text-9xl mb-6">
-         🎓
-        </div>
-        <h2 class="text-6xl font-black gradient-text mb-6">Master New Skills</h2>
-        <p class="text-2xl text-gray-300 max-w-3xl mx-auto">Join our comprehensive learning programs designed to take you from beginner to expert</p>
-       </div>
-       <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          📚
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Weekly Workshops</h3>
-         <p class="text-gray-300 mb-4">Interactive sessions covering the latest technologies, frameworks, and best practices in software development.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Frontend Development</li>
-          <li>✓ Backend Architecture</li>
-          <li>✓ Mobile App Development</li>
-          <li>✓ Cloud Computing</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          👨‍🏫
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Mentorship Program</h3>
-         <p class="text-gray-300 mb-4">Get paired with experienced developers who guide you through your learning journey.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ One-on-one guidance</li>
-          <li>✓ Career counseling</li>
-          <li>✓ Code reviews</li>
-          <li>✓ Project support</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🎯
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Skill Tracks</h3>
-         <p class="text-gray-300 mb-4">Structured learning paths tailored to different expertise levels and career goals.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Beginner Track</li>
-          <li>✓ Intermediate Track</li>
-          <li>✓ Advanced Track</li>
-          <li>✓ Specialization Courses</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🏆
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Certifications</h3>
-         <p class="text-gray-300 mb-4">Earn recognized certificates upon completing courses and demonstrating proficiency.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Course completion certificates</li>
-          <li>✓ Skill badges</li>
-          <li>✓ Project showcase</li>
-          <li>✓ LinkedIn endorsements</li>
-         </ul>
-        </div>
-       </div>
-       <div class="text-center"><button onclick="showContactPage(); hideFeaturePage(1);" class="shine rotating-border bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Join Learning Program → </button>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div><!-- Build Projects Page -->
-   <div id="feature-page-2" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-    <div class="min-h-screen flex flex-col">
-     <div class="glass-dark py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-       <div>
-        <h1 class="text-3xl font-bold gradient-text">Build Projects</h1>
-        <p class="text-gray-400">Real-World Development Experience</p>
-       </div><button onclick="hideFeaturePage(2)" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
-      </div>
-     </div>
-     <div class="flex-1 py-20 px-6">
-      <div class="max-w-6xl mx-auto">
-       <div class="text-center mb-16">
-        <div class="text-9xl mb-6">
-         🚀
-        </div>
-        <h2 class="text-6xl font-black gradient-text mb-6">Create Real Solutions</h2>
-        <p class="text-2xl text-gray-300 max-w-3xl mx-auto">Build meaningful projects that solve real problems and showcase your skills</p>
-       </div>
-       <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          💡
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Project Ideas</h3>
-         <p class="text-gray-300 mb-4">Access a curated collection of project ideas ranging from beginner to advanced levels.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Web applications</li>
-          <li>✓ Mobile apps</li>
-          <li>✓ AI/ML projects</li>
-          <li>✓ Open source contributions</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🛠
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Resources &amp; Tools</h3>
-         <p class="text-gray-300 mb-4">Get access to development tools, cloud credits, and premium resources for your projects.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Free cloud hosting</li>
-          <li>✓ API access</li>
-          <li>✓ Design assets</li>
-          <li>✓ Development tools</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          👥
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Team Formation</h3>
-         <p class="text-gray-300 mb-4">Find team members with complementary skills to collaborate on ambitious projects.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Skill matching</li>
-          <li>✓ Team building events</li>
-          <li>✓ Project management</li>
-          <li>✓ Agile workflows</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🎬
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Project Showcase</h3>
-         <p class="text-gray-300 mb-4">Present your completed projects to peers, mentors, and potential employers.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Demo days</li>
-          <li>✓ Portfolio building</li>
-          <li>✓ Feedback sessions</li>
-          <li>✓ Competition opportunities</li>
-         </ul>
-        </div>
-       </div>
-       <div class="text-center"><button onclick="showContactPage(); hideFeaturePage(2);" class="shine rotating-border bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Start Building → </button>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div><!-- Connect & Collaborate Page -->
-   <div id="feature-page-3" class="hidden fixed inset-0 z-50 overflow-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-    <div class="min-h-screen flex flex-col">
-     <div class="glass-dark py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-       <div>
-        <h1 class="text-3xl font-bold gradient-text">Connect &amp; Collaborate</h1>
-        <p class="text-gray-400">Build Your Network</p>
-       </div><button onclick="hideFeaturePage(3)" class="glass rounded-full px-6 py-3 font-bold text-purple-400 hover:bg-purple-500 hover:text-white transition"> ← Back to Home </button>
-      </div>
-     </div>
-     <div class="flex-1 py-20 px-6">
-      <div class="max-w-6xl mx-auto">
-       <div class="text-center mb-16">
-        <div class="text-9xl mb-6">
-           
-        </div>
-        <h2 class="text-6xl font-black gradient-text mb-6">Grow Together</h2>
-        <p class="text-2xl text-gray-300 max-w-3xl mx-auto">Connect with passionate developers and build lasting professional relationships</p>
-       </div>
-       <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🌐
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Networking Events</h3>
-         <p class="text-gray-300 mb-4">Regular meetups, tech talks, and social events to connect with fellow developers.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Monthly meetups</li>
-          <li>✓ Tech conferences</li>
-          <li>✓ Industry speakers</li>
-          <li>✓ Social gatherings</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          💬
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Community Forums</h3>
-         <p class="text-gray-300 mb-4">Active online community where members share knowledge and help each other.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Discord server</li>
-          <li>✓ Discussion boards</li>
-          <li>✓ Code reviews</li>
-          <li>✓ Q&amp;A sessions</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🤖
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Study Groups</h3>
-         <p class="text-gray-300 mb-4">Join or create study groups focused on specific technologies or topics.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>✓ Peer learning</li>
-          <li>✓ Group projects</li>
-          <li>✓ Code challenges</li>
-          <li>✓ Pair programming</li>
-         </ul>
-        </div>
-        <div class="glass-dark rounded-3xl p-8">
-         <div class="text-5xl mb-4">
-          🎤
-         </div>
-         <h3 class="text-3xl font-bold text-white mb-4">Guest Speakers</h3>
-         <p class="text-gray-300 mb-4">Learn from industry professionals and successful entrepreneurs who share their experiences.</p>
-         <ul class="space-y-2 text-gray-400">
-          <li>   Industry insights</li>
-          <li>✓ Career guidance</li>
-          <li>✓ Startup stories</li>
-          <li>✓ Technical deep-dives</li>
-         </ul>
-        </div>
-       </div>
-       <div class="text-center"><button onclick="showContactPage(); hideFeaturePage(3);" class="shine rotating-border bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold text-lg px-10 py-5 rounded-full hover:scale-110 transition-all duration-300 neon-glow"> Join Community → </button>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div><!-- Footer -->
-   <footer class="relative py-16 px-6 mt-20">
-    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent"></div>
-    <div class="max-w-7xl mx-auto text-center relative z-10">
-     <div class="mb-8">
-      <div class="text-4xl font-black gradient-text mb-2">
-       Code Vimarsh
-      </div>
-      <p class="text-gray-400">Empowering the next generation of innovators</p>
-     </div>
-     <div class="flex justify-center space-x-8 mb-8"><a href="#home" class="text-gray-400 hover:text-purple-400 transition font-semibold">Home</a> <a href="#features" class="text-gray-400 hover:text-purple-400 transition font-semibold">Features</a> <a href="#events" class="text-gray-400 hover:text-purple-400 transition font-semibold">Events</a> <a href="#team" class="text-gray-400 hover:text-purple-400 transition font-semibold">Team</a>
-     </div>
-     <div class="border-t border-gray-700 pt-8">
-      <p id="footer-copyright" class="text-gray-500">© 2025 Code Vimarsh. All rights reserved.</p>
-     </div>
-    </div>
-   </footer>
   </div>
-  <script>
-    // Page Navigation Functions
-    function showJoinPage() {
-      document.getElementById('join-page').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
 
-    function hideJoinPage() {
-      document.getElementById('join-page').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
+  <div class="hidden md:flex gap-6 font-semibold text-sm">
+    <a href="#home" class="hover:text-purple-400">Home</a>
+    <a href="#features" class="hover:text-purple-400">Features</a>
+    <a href="#events" class="hover:text-purple-400">Events</a>
+    <a href="#team" class="hover:text-purple-400">Team</a>
+  </div>
+</nav>
 
-    function showContactPage() {
-      document.getElementById('contact-page').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
+<!-- Hero -->
+<section id="home" class="min-h-screen flex items-center justify-center px-6 text-center">
+  <div>
+    <div class="text-8xl mb-6 float">💻</div>
+    <h2 class="text-6xl md:text-7xl font-black gradient-text mb-6">Code Vimarsh</h2>
+    <p class="text-2xl md:text-3xl text-purple-300 mb-6">
+      Where Ideas Come to Life
+    </p>
+    <p class="max-w-2xl mx-auto text-gray-300 mb-10">
+      Learn. Build. Collaborate. Join a community of passionate developers and innovators.
+    </p>
 
-    function hideContactPage() {
-      document.getElementById('contact-page').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <a href="#contact" class="px-8 py-4 rounded-full bg-purple-600 hover:bg-purple-700 font-bold">
+        Join Community →
+      </a>
+      <a href="https://www.codevimarsh.com" target="_blank"
+         class="px-8 py-4 rounded-full bg-pink-600 hover:bg-pink-700 font-bold">
+        Visit Website 🌐
+      </a>
+    </div>
+  </div>
+</section>
 
-    function showFeaturePage(pageNum) {
-      document.getElementById('feature-page-' + pageNum).classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
+<!-- Features -->
+<section id="features" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
 
-    function hideFeaturePage(pageNum) {
-      document.getElementById('feature-page-' + pageNum).classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🎓</div>
+      <h3 class="text-2xl font-bold mb-3">Learn & Grow</h3>
+      <p class="text-gray-300">
+        Workshops, mentorship and structured learning paths.
+      </p>
+    </div>
 
-    // Handle Join Form Submission
-    document.addEventListener('DOMContentLoaded', function() {
-      const joinForm = document.getElementById('join-form');
-      if (joinForm) {
-        joinForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const firstName = document.getElementById('join-firstname').value;
-          const lastName = document.getElementById('join-lastname').value;
-          const email = document.getElementById('join-email').value;
-          const department = document.getElementById('join-department').value;
-          
-          // Get selected technologies
-          const techCheckboxes = document.querySelectorAll('input[name="tech"]:checked');
-          const technologies = Array.from(techCheckboxes).map(cb => cb.value);
-          
-          // Show success message
-          const joinMessage = document.getElementById('join-message');
-          joinMessage.innerHTML = `
-            <div class="text-center">
-              <div class="text-6xl mb-4">🎉</div>
-              <h3 class="text-2xl font-bold text-white mb-2">Welcome to Code Vimarsh, ${firstName}!</h3>
-              <p class="text-gray-300 mb-4">Your application has been successfully submitted. We'll review it and get back to you at ${email} within 2-3 business days.</p>
-              <p class="text-purple-400 font-semibold">Get ready to start your coding journey! 🚀</p>
-            </div>
-          `;
-          joinMessage.className = 'text-center p-6 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500';
-          joinMessage.classList.remove('hidden');
-          
-          // Reset form
-          joinForm.reset();
-          
-          // Scroll to message
-          joinMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-      }
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🚀</div>
+      <h3 class="text-2xl font-bold mb-3">Build Projects</h3>
+      <p class="text-gray-300">
+        Create real-world applications and showcase your skills.
+      </p>
+    </div>
 
-      // Handle Contact Form Submission
-      const contactForm = document.getElementById('contact-form');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const name = document.getElementById('name').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-          const message = document.getElementById('message').value;
-          
-          // Show success message
-          const formMessage = document.getElementById('form-message');
-          formMessage.textContent = Thank you ${name}! Your message has been received. We'll get back to you soon at ${email}.;
-          formMessage.className = 'text-center p-4 rounded-xl bg-green-500/20 text-green-300 border border-green-500';
-          formMessage.classList.remove('hidden');
-          
-          // Reset form
-          contactForm.reset();
-          
-          // Hide message after 5 seconds
-          setTimeout(() => {
-            formMessage.classList.add('hidden');
-          }, 5000);
-        });
-      }
-    });
+    <div class="glass p-8 rounded-3xl card text-center">
+      <div class="text-5xl mb-4">🤝</div>
+      <h3 class="text-2xl font-bold mb-3">Connect</h3>
+      <p class="text-gray-300">
+        Network with developers & collaborate on ideas.
+      </p>
+    </div>
 
-    const defaultConfig = {
-      club_name: "Code Vimarsh",
-      club_motto: "Innovation Starts Here",
-      hero_title: "Code Vimarsh",
-      hero_subtitle: "Where Ideas Come to Life",
-      hero_description: "Join the future of coding. Connect with passionate developers, learn cutting-edge technologies, and build projects that matter.",
-      cta_button: "Join Our Community →",
-      feature_1_title: "Learn & Grow",
-      feature_1_text: "Master new technologies through hands-on workshops, expert mentorship, and collaborative learning experiences.",
-      feature_2_title: "Build Projects",
-      feature_2_text: "Create real-world applications and innovative solutions. Turn your ideas into reality with our resources and support.",
-      feature_3_title: "Connect & Collaborate",
-      feature_3_text: "Network with fellow developers, share knowledge, and collaborate on exciting projects that push boundaries.",
-      events_title: "Upcoming Events",
-      event_1_name: "Web Dev Masterclass",
-      event_1_description: "Deep dive into modern web development with React, Next.js, and cutting-edge frameworks. Build stunning applications.",
-      event_2_name: "Innovation Hackathon",
-      event_2_description: "48-hour coding marathon where teams compete to build groundbreaking solutions. Win prizes and recognition.",
-      event_3_name: "AI Revolution Talk",
-      event_3_description: "Explore the future of artificial intelligence with industry experts. Learn about neural networks and ML applications.",
-      team_title: "Meet Our Team",
-      team_subtitle: "The minds behind the magic",
-      leader_1_name: "Aditya Verma",
-      leader_1_title: "President",
-      leader_2_name: "Priya Sharma",
-      leader_2_title: "Vice President",
-      leader_3_name: "Rohan Desai",
-      leader_3_title: "Technical Lead",
-      leader_4_name: "Kavya Reddy",
-      leader_4_title: "Events Coordinator",
-      footer_copyright: "© 2025 Code Vimarsh. All rights reserved.",
-      background_color: "#0f172a",
-      primary_color: "#9333ea",
-      secondary_color: "#ec4899",
-      text_color: "#ffffff",
-      accent_color: "#06b6d4"
-    };
+  </div>
+</section>
 
-    async function onConfigChange(config) {
-      // Header
-      document.getElementById('club-name').textContent = config.club_name || defaultConfig.club_name;
-      document.getElementById('club-motto').textContent = config.club_motto || defaultConfig.club_motto;
-      
-      // Hero
-      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
-      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
-      document.getElementById('hero-description').textContent = config.hero_description || defaultConfig.hero_description;
-      document.getElementById('cta-button').textContent = config.cta_button || defaultConfig.cta_button;
-      
-      // Features
-      document.getElementById('feature-1-title').textContent = config.feature_1_title || defaultConfig.feature_1_title;
-      document.getElementById('feature-1-text').textContent = config.feature_1_text || defaultConfig.feature_1_text;
-      document.getElementById('feature-2-title').textContent = config.feature_2_title || defaultConfig.feature_2_title;
-      document.getElementById('feature-2-text').textContent = config.feature_2_text || defaultConfig.feature_2_text;
-      document.getElementById('feature-3-title').textContent = config.feature_3_title || defaultConfig.feature_3_title;
-      document.getElementById('feature-3-text').textContent = config.feature_3_text || defaultConfig.feature_3_text;
-      
-      // Events
-      document.getElementById('events-title').textContent = config.events_title || defaultConfig.events_title;
-      document.getElementById('event-1-name').textContent = config.event_1_name || defaultConfig.event_1_name;
-      document.getElementById('event-1-description').textContent = config.event_1_description || defaultConfig.event_1_description;
-      document.getElementById('event-2-name').textContent = config.event_2_name || defaultConfig.event_2_name;
-      document.getElementById('event-2-description').textContent = config.event_2_description || defaultConfig.event_2_description;
-      document.getElementById('event-3-name').textContent = config.event_3_name || defaultConfig.event_3_name;
-      document.getElementById('event-3-description').textContent = config.event_3_description || defaultConfig.event_3_description;
-      
-      // Team
-      document.getElementById('team-title').textContent = config.team_title || defaultConfig.team_title;
-      document.getElementById('team-subtitle').textContent = config.team_subtitle || defaultConfig.team_subtitle;
-      document.getElementById('leader-1-name').textContent = config.leader_1_name || defaultConfig.leader_1_name;
-      document.getElementById('leader-1-title').textContent = config.leader_1_title || defaultConfig.leader_1_title;
-      document.getElementById('leader-2-name').textContent = config.leader_2_name || defaultConfig.leader_2_name;
-      document.getElementById('leader-2-title').textContent = config.leader_2_title || defaultConfig.leader_2_title;
-      document.getElementById('leader-3-name').textContent = config.leader_3_name || defaultConfig.leader_3_name;
-      document.getElementById('leader-3-title').textContent = config.leader_3_title || defaultConfig.leader_3_title;
-      document.getElementById('leader-4-name').textContent = config.leader_4_name || defaultConfig.leader_4_name;
-      document.getElementById('leader-4-title').textContent = config.leader_4_title || defaultConfig.leader_4_title;
-      
-      // Footer
-      document.getElementById('footer-copyright').textContent = config.footer_copyright || defaultConfig.footer_copyright;
-      
-      // Colors
-      const wrapper = document.querySelector('.page-wrapper');
-      wrapper.style.background = linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.primary_color || defaultConfig.primary_color}20 50%, ${config.background_color || defaultConfig.background_color} 100%);
-    }
+<!-- Events -->
+<section id="events" class="py-24 px-6 bg-purple-950/30">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-12">Upcoming Events</h2>
 
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              config.background_color = value;
-              window.elementSdk.setConfig({ background_color: value });
-            }
-          },
-          {
-            get: () => config.primary_color || defaultConfig.primary_color,
-            set: (value) => {
-              config.primary_color = value;
-              window.elementSdk.setConfig({ primary_color: value });
-            }
-          },
-          {
-            get: () => config.secondary_color || defaultConfig.secondary_color,
-            set: (value) => {
-              config.secondary_color = value;
-              window.elementSdk.setConfig({ secondary_color: value });
-            }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              config.text_color = value;
-              window.elementSdk.setConfig({ text_color: value });
-            }
-          },
-          {
-            get: () => config.accent_color || defaultConfig.accent_color,
-            set: (value) => {
-              config.accent_color = value;
-              window.elementSdk.setConfig({ accent_color: value });
-            }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass p-8 rounded-3xl card">
+        <div class="text-5xl mb-4">🎨</div>
+        <h4 class="text-xl font-bold mb-2">Web Dev Masterclass</h4>
+        <p class="text-gray-300">Modern frontend & backend technologies.</p>
+      </div>
 
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["club_name", config.club_name || defaultConfig.club_name],
-        ["club_motto", config.club_motto || defaultConfig.club_motto],
-        ["hero_title", config.hero_title || defaultConfig.hero_title],
-        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-        ["hero_description", config.hero_description || defaultConfig.hero_description],
-        ["cta_button", config.cta_button || defaultConfig.cta_button],
-        ["feature_1_title", config.feature_1_title || defaultConfig.feature_1_title],
-        ["feature_1_text", config.feature_1_text || defaultConfig.feature_1_text],
-        ["feature_2_title", config.feature_2_title || defaultConfig.feature_2_title],
-        ["feature_2_text", config.feature_2_text || defaultConfig.feature_2_text],
-        ["feature_3_title", config.feature_3_title || defaultConfig.feature_3_title],
-        ["feature_3_text", config.feature_3_text || defaultConfig.feature_3_text],
-        ["events_title", config.events_title || defaultConfig.events_title],
-        ["event_1_name", config.event_1_name || defaultConfig.event_1_name],
-        ["event_1_description", config.event_1_description || defaultConfig.event_1_description],
-        ["event_2_name", config.event_2_name || defaultConfig.event_2_name],
-        ["event_2_description", config.event_2_description || defaultConfig.event_2_description],
-        ["event_3_name", config.event_3_name || defaultConfig.event_3_name],
-        ["event_3_description", config.event_3_description || defaultConfig.event_3_description],
-        ["team_title", config.team_title || defaultConfig.team_title],
-        ["team_subtitle", config.team_subtitle || defaultConfig.team_subtitle],
-        ["leader_1_name", config.leader_1_name || defaultConfig.leader_1_name],
-        ["leader_1_title", config.leader_1_title || defaultConfig.leader_1_title],
-        ["leader_2_name", config.leader_2_name || defaultConfig.leader_2_name],
-        ["leader_2_title", config.leader_2_title || defaultConfig.leader_2_title],
-        ["leader_3_name", config.leader_3_name || defaultConfig.leader_3_name],
-        ["leader_3_title", config.leader_3_title || defaultConfig.leader_3_title],
-        ["leader_4_name", config.leader_4_name || defaultConfig.leader_4_name],
-        ["leader_4_title", config.leader_4_title || defaultConfig.leader_4_title],
-        ["footer_copyright", config.footer_copyright || defaultConfig.footer_copyright]
-      ]);
-    }
+      <div class="glass p-8 rounded-3xl card">
+        <div class="text-5xl mb-4">⚡</div>
+        <h4 class="text-xl font-bold mb-2">Hackathon</h4>
+        <p class="text-gray-300">48-hour innovation challenge.</p>
+      </div>
 
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b59b1c145883b7f',t:'MTc2NzAxNTQ3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+      <div class="glass p-8 rounded-3xl card">
+        <div class="text-5xl mb-4">🤖</div>
+        <h4 class="text-xl font-bold mb-2">AI Talk</h4>
+        <p class="text-gray-300">Future of Artificial Intelligence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-5xl font-black gradient-text mb-12">Meet Our Team</h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="glass p-6 rounded-3xl">
+        <div class="text-5xl mb-3">🔥</div>
+        <h4 class="font-bold">Aditya Verma</h4>
+        <p class="text-purple-400">President</p>
+      </div>
+      <div class="glass p-6 rounded-3xl">
+        <div class="text-5xl mb-3">💎</div>
+        <h4 class="font-bold">Priya Sharma</h4>
+        <p class="text-cyan-400">Vice President</p>
+      </div>
+      <div class="glass p-6 rounded-3xl">
+        <div class="text-5xl mb-3">⚡</div>
+        <h4 class="font-bold">Rohan Desai</h4>
+        <p class="text-pink-400">Technical Lead</p>
+      </div>
+      <div class="glass p-6 rounded-3xl">
+        <div class="text-5xl mb-3">✨</div>
+        <h4 class="font-bold">Kavya Reddy</h4>
+        <p class="text-indigo-400">Events Coordinator</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 text-center text-gray-400">
+  © 2025 Code Vimarsh. All rights reserved.
+</footer>
+
+</body>
 </html>
